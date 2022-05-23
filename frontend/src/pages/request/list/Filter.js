@@ -33,14 +33,12 @@ const Filter = (props) => {
     assignee,
     user,
     isLoading,
-    department,
   } = props;
   const classes = useTheme();
   const [inputSelected, setInputSelected] = useState({
     author: "",
     assignee: "",
     category: "",
-    department: "",
   });
   const [form, setForm] = useState({
     name: "",
@@ -50,7 +48,6 @@ const Filter = (props) => {
     user_id: "",
     assignee: "",
     category_id: "",
-    deparment_id: "",
   });
 
   const handleFilterModal = () => {
@@ -65,13 +62,11 @@ const Filter = (props) => {
       user_id: "",
       assignee: "",
       category_id: "",
-      deparment_id: "",
     });
     setInputSelected({
       author: "",
       assignee: "",
       category: "",
-      department: "",
     });
     onHandleClearModal(form);
   };
@@ -216,26 +211,6 @@ const Filter = (props) => {
                 )}
               />
             </Paper>
-
-            {/* DEPARTMENT */}
-            <Paper className={classes.modal__form__item} elevation={0}>
-              <Title title="Department" />
-              <Autocomplete
-                onChange={(event, selected) =>
-                  onChangeAutocomplete(selected, "deparment_id")
-                }
-                inputValue={inputSelected.department}
-                onInputChange={(event, inputChange) =>
-                  onChangeInputSelect(inputChange, "department")
-                }
-                getOptionLabel={(item) => item.name}
-                id="department"
-                options={department}
-                renderInput={(params) => (
-                  <TextField {...params} variant="outlined" />
-                )}
-              />
-            </Paper>
           </form>
         </Box>
         <Box component="div" className={classes.box__btn}>
@@ -266,7 +241,6 @@ Filter.defaultProps = {
   category: [],
   assignee: [],
   user: [],
-  department: [],
 };
 Filter.propTypes = {
   handleChangeExpand: PropTypes.func.isRequired,
@@ -277,7 +251,6 @@ Filter.propTypes = {
   assignee: PropTypes.array,
   user: PropTypes.array,
   isLoading: PropTypes.bool,
-  department: PropTypes.array,
 };
 
 export default Filter;

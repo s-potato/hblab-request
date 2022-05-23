@@ -8,6 +8,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Deparment;
+use App\Models\Role;
 use Resources\lang\vn\messages;
 
 class GoogleOAuth2Controller extends Controller
@@ -42,9 +44,9 @@ class GoogleOAuth2Controller extends Controller
                     'name' => $userData->name,
                     'email' => $userData->email,
                     'password' => Hash::make($randstring),
-                    'deparment_id' => 0,
+                    'deparment_id' => Deparment::where('name', "Unassigned")->first()->id,
                     'status' => 1,
-                    'role_id' => 2,
+                    'role_id' => Role::ROLE_USER,
                     'id_user' => $userData->email,
                 ]);
             }
@@ -69,7 +71,6 @@ class GoogleOAuth2Controller extends Controller
             return response()->json([
                 'data' => [
                     'code' => 401,
-                    'throw' => $user->status,
                     'message' => trans('messages.loginWithGoogleFailt'),
                 ],
             ]);

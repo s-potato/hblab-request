@@ -21,18 +21,18 @@ class RoleTableSeeder extends Seeder
                 'created_at' =>  $now ,
                 'updated_at' =>  $now ,
             ],
-           [
+            [
+                    'name' => 'User',
+                    'description' => 'Tạo mới request',
+                    'created_at' =>  $now ,
+                    'updated_at' =>  $now ,
+            ],
+            [
                 'name' => 'Manager',
                 'description' => 'Duyệt request của bộ phận mình',
                 'created_at' =>  $now ,
                 'updated_at' =>  $now ,
             ],
-           [
-                'name' => 'Employee',
-                'description' => 'Tạo mới request',
-                'created_at' =>  $now ,
-                'updated_at' =>  $now ,
-                ]
           ]);
     }
 }

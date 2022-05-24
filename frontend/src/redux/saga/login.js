@@ -8,7 +8,10 @@ function* postEmail(action) {
     const res = yield call(login, action.payload);
     const { data } = res;
     if (data.code === 200) {
-      localStorage.setItem("token", data.access_token);
+      if (action.payload.isRememberMe)
+        localStorage.setItem("token", data.access_token);
+      else
+        sessionStorage.setItem("token", data.access_token);
       action.onSuccess(data.message);
       yield put(postEmailSuccess(data));
     } else {

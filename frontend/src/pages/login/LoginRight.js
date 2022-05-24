@@ -1,7 +1,7 @@
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import { useThemes, Form } from './style';
-import { Grid, Box, CircularProgress, FormHelperText, Link } from '@material-ui/core';
+import { Grid, Box, CircularProgress, FormHelperText, Link, FormControlLabel, Checkbox } from '@material-ui/core';
 import { GoogleLogin } from 'react-google-login';
 import Title from '../../components/Title';
 import PropTypes from 'prop-types';
@@ -22,7 +22,9 @@ const LoginRight = (props) => {
     errorPassword,
     touchedEmail,
     touchedPassword,
-    forgotPassword
+    forgotPassword,
+    valueRemenber,
+    onChangeRemenber
   } = props;
 
   const classes = useThemes();
@@ -50,7 +52,7 @@ const LoginRight = (props) => {
             <Input
               className={classes.input}
               id="outlined-basic-2"
-              label="PassWord"
+              label="Password"
               variant="outlined"
               name="password"
               type="password"
@@ -60,6 +62,16 @@ const LoginRight = (props) => {
             <FormHelperText className={classes.error}>
               {touchedPassword && errorPassword}
             </FormHelperText>
+          </Grid>
+          <Grid className={classes.rememberMe} >
+            <FormControlLabel
+            control={ <Checkbox 
+              color="primary"
+              name="remember"
+              checked={valueRemenber}
+              onChange={onChangeRemenber}
+              />}
+            label="Remember me" />
           </Grid>
           <Title
             className={classes.forgotPass}
@@ -126,7 +138,9 @@ LoginRight.propTypes = {
   touchedPassword: PropTypes.bool,
   errorEmail: PropTypes.string,
   errorPassword: PropTypes.string,
-  forgotPassword: PropTypes.func
+  forgotPassword: PropTypes.func,
+  isRememberMe: PropTypes.bool,
+  onChangeRemenber: PropTypes.func
 };
 
 export default LoginRight;

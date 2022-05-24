@@ -18,7 +18,9 @@ import ResetPassword from './pages/resetPassword/index';
 import ChangePassword from './pages/changePassword/index';
 
 const App = () => {
-  const token = localStorage.getItem("token");
+  var token = localStorage.getItem("token");
+  if (!token)
+    token = sessionStorage.getItem("token")
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

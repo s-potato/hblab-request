@@ -93,6 +93,11 @@ export const useThemes = makeStyles(theme => ({
     position: "relative",
   },
 
+  rememberMe: {
+    padding: '4% 0 0 10%',
+    textAlign: 'left'
+  },
+
   forgotPass: {
     padding: '4% 10% 0 0',
     textAlign: 'right'

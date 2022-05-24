@@ -31,6 +31,7 @@ const Login = () => {
     initialValues: {
       email: "",
       password: "",
+      remember: false
     },
     validationSchema: Yup.object({
       email: Yup.string()
@@ -44,6 +45,7 @@ const Login = () => {
       const value = {
         email: values.email,
         password: values.password,
+        isRememberMe: values.remember
       };
       setLoading(true);
       dispatch(
@@ -101,8 +103,10 @@ const Login = () => {
           onSubmit={formik.handleSubmit}
           valueEmail={formik.values.email}
           valuePassword={formik.values.password}
+          valueRemenber={formik.values.remember}
           onChangeEmail={formik.handleChange}
           onChangePassword={formik.handleChange}
+          onChangeRemenber={formik.handleChange}
           isLoading={isLoading}
           errorEmail={formik.errors.email}
           errorPassword={formik.errors.password}

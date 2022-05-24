@@ -41,8 +41,9 @@ const Header = (props) => {
   };
 
   const signOut = () => {
+    sessionStorage.clear();
     localStorage.clear();
-    history.push("/login");
+    window.location.reload();
   };
 
   const changePassword = () => {

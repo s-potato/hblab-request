@@ -3,7 +3,9 @@ import {
   Redirect,
 } from "react-router-dom";
 export const PrivateRoute = ({ children, ...rest }) => {
-  const token = localStorage.getItem("token");
+  var token = localStorage.getItem("token");
+  if (!token)
+    token = sessionStorage.getItem("token")
   return (
     <Route
       {...rest}

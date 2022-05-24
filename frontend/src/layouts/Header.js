@@ -93,14 +93,11 @@ const Header = (props) => {
                 <Paper>
                   <ClickAwayListener onClickAway={handleClose}>
                     <MenuList autoFocusItem={isOpen} id="menu-list-grow">
-                      <MenuItem className={classes.item}>
+                      <MenuItem className={classes.item} disableRipple>
                         <Title
                           title={`Hello, ${currentUser?.name}`}
                           variant="subtitle2"
                         />
-                      </MenuItem>
-                      <MenuItem>
-                        <Title title={currentUser?.email} variant="subtitle2" />
                       </MenuItem>
                       <Divider />
                       <MenuItem onClick={changePassword}>

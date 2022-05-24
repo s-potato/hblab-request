@@ -30,7 +30,7 @@ const ListCategory = () => {
   const history = useHistory();
 
   const [rows, setRows] = useState([]);
-  const [valueAutocomplate, setValueAutocomplate] = useState();
+  const [valueAutoComplete, setValueAutoComplete] = useState();
   const [isModal, setModal] = useState(false);
   const [valueSearch, setValueSearch] = useState("");
   const [action, setAtion] = useState("");
@@ -162,7 +162,8 @@ const ListCategory = () => {
     }
   };
 
-  const handleAutocomplate = (e, value) => {
+  const handleAutoComplete = (e, value) => {
+    if (value) {
     const id = value.id;
     const assignee = value.name;
     setValueForm({
@@ -170,7 +171,7 @@ const ListCategory = () => {
       assignee: assignee,
       assigneeId: id,
       status: ENABLE,
-    });
+    });}
   };
 
   const close = () => {
@@ -179,7 +180,7 @@ const ListCategory = () => {
 
   const handleAddUser = (action) => {
     setValueForm({});
-    setValueAutocomplate({});
+    setValueAutoComplete({});
     formik.resetForm();
     setAtion(action);
     setModal(true);
@@ -195,10 +196,10 @@ const ListCategory = () => {
       id: row.id
     });
     setModal(true);
-    const valueAutocomplate = assignee.filter(
+    const valueAutoComplete = assignee.filter(
       (item) => item.id === row.users[0].user_id
     );
-    setValueAutocomplate(valueAutocomplate[0]);
+    setValueAutoComplete(valueAutoComplete[0]);
     setAtion(action);
   };
 
@@ -235,10 +236,10 @@ const ListCategory = () => {
           />
         </Box>
         <Modal
-          defaultvalue={valueAutocomplate}
+          defaultvalue={valueAutoComplete}
           action={action}
           assignee={assignee}
-          handleAutocomplate={handleAutocomplate}
+          handleAutoComplete={handleAutoComplete}
           values={formik.values}
           isOpen={isModal}
           onCancel={close}

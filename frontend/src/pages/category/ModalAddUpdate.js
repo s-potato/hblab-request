@@ -18,7 +18,7 @@ const ModalComponent = (props) => {
     values,
     action,
     assignee,
-    handleAutocomplate,
+    handleAutoComplete,
     errorName,
     errorDescription,
     errorAssignee,
@@ -76,7 +76,7 @@ const ModalComponent = (props) => {
               <Title title='Assignee' variant="h6" className={classes.title} />
               <Autocomplete
                 name='assignee'
-                onChange={handleAutocomplate}
+                onChange={handleAutoComplete}
                 id="assignee"
                 options={assignee}
                 getOptionLabel={(option) => option.name}
@@ -126,7 +126,7 @@ ModalComponent.propTypes = {
   values: PropTypes.object,
   action: PropTypes.string,
   assignee: PropTypes.array,
-  handleAutocomplate: PropTypes.func,
+  handleAutoComplete: PropTypes.func,
   errorName: PropTypes.string,
   errorDescription: PropTypes.string,
   errorAssignee: PropTypes.string,

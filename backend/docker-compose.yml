@@ -68,6 +68,7 @@ services:
       - '6379:6379'
     volumes:
       - 'redis_data:/bitnami/redis/data'
+    restart: unless-stopped
     networks:
       - app-network
 

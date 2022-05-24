@@ -1,15 +1,15 @@
 export const columns = [
-  { id: "name", label: "Name", width: "20%" },
-  { id: "content", label: "Content", width: "18%" },
+  { id: "name", label: "Name", width: "15%" },
+  { id: "content", label: "Content", width: "20%" },
   {
     id: "author",
     label: "Author",
-    width: "15%",
+    width: "18%",
   },
   {
     id: "date",
     label: "Due date",
-    width: "10%",
+    width: "12%",
   },
   {
     id: "category",
@@ -24,7 +24,7 @@ export const columns = [
   {
     id: "status",
     label: "Status",
-    width: "12%",
+    width: "10%",
     align: "left",
   },
 ];

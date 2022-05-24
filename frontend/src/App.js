@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Switch, Route } from "react-router-dom";
+import { Router, Switch, Route, Redirect } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./constants/theme";
 import { CssBaseline } from "@material-ui/core";
@@ -18,6 +18,7 @@ import ResetPassword from './pages/resetPassword/index';
 import ChangePassword from './pages/changePassword/index';
 
 const App = () => {
+  const token = localStorage.getItem("token");
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -27,7 +28,7 @@ const App = () => {
             <List />
           </PrivateRoute>
           <Route path="/login">
-            <Login />
+            { token ? <Redirect to='/' /> : <Login /> }
           </Route>
           <PrivateRoute path="/create-request">
             <CreateRequest />

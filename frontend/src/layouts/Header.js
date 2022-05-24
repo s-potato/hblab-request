@@ -13,7 +13,7 @@ import {
   Divider,
   Badge,
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import {Menu, Close} from "@material-ui/icons";
 import logo from "../assets/img/logo.png";
 import { useTheme } from "./style";
 import Button from "../components/Button";
@@ -27,10 +27,11 @@ import { useState } from "react";
 import Title from "../components/Title";
 
 const Header = (props) => {
-  const { handleClick, currentUser } = props;
+  const { handleClick, currentUser, isMenuOpen } = props;
   const classes = useTheme();
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
+  
   const handleClickInfo = () => {
     setIsOpen((pre) => !pre);
   };
@@ -57,7 +58,7 @@ const Header = (props) => {
       <Toolbar className={classes.toolBar}>
         <Box>
           <IconButton onClick={handleClick} color="inherit">
-            <MenuIcon />
+            {isMenuOpen ? <Close /> : <Menu />}
           </IconButton>
           <Button
             variant="text"
@@ -124,5 +125,6 @@ const Header = (props) => {
 Header.propTypes = {
   handleClick: PropTypes.func.isRequired,
   currentUser: PropTypes.object,
+  isMenuOpen: PropTypes.bool
 };
 export default Header;

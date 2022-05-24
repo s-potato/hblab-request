@@ -27,7 +27,7 @@ export const listStatus = {
 export const listDeparment = {
   hb1: 'HB1',
   hb2: 'HB2',
-  hb3: 'Hb3',
+  hb3: 'HB3',
   hb4: 'HB4',
 };
 

@@ -69,7 +69,7 @@ const Layout = (props) => {
 
   return (
     <div className={classes.root}>
-      <Header handleClick={handleClick} currentUser={currentUser} />
+      <Header handleClick={handleClick} currentUser={currentUser} isMenuOpen={statusSideBar}/>
       <Menu isOpen={statusSideBar} list={list} />
       <Content>{children}</Content>
     </div>

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import { useThemes } from "./style";
-import LoginLeft from "./LoginLeft";
-import LoginRight from "./LoginRight";
+import LoginForm from "./LoginForm";
 import { useDispatch } from "react-redux";
 import { postEmail, postEmailGoogle } from "../../redux/actions/login";
 import Message from "../../components/Message";
@@ -94,11 +93,8 @@ const Login = () => {
 
   return (
     <Grid className={classes.root} container>
-      <Grid item xs={6} className={classes.loginLeft}>
-        <LoginLeft />
-      </Grid>
-      <Grid item xs={6} className={classes.rightPadding}>
-        <LoginRight
+      <Grid item xs={6} className={classes.mainContent}>
+        <LoginForm
           onSuccess={responseGoogle}
           onSubmit={formik.handleSubmit}
           valueEmail={formik.values.email}

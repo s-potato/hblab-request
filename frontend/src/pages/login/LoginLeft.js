@@ -13,7 +13,7 @@ const LoginLeft = () => {
     >
       <Box className={classes.logoLogin}>
         <Title className={classes.welcame} variant='h4' title='Welcome to HBLab Requests Gate' />
-        <img alt="#" src={Logo} className={classes.img} />
+        <img alt="#" src={Logo} className={classes.image} />
       </Box>
     </Grid>
   )

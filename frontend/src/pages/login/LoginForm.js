@@ -1,4 +1,5 @@
 import Input from '../../components/Input';
+import Logo from '../../assets/img/login.png';
 import Button from '../../components/Button';
 import { useThemes, Form } from './style';
 import { Grid, Box, CircularProgress, FormHelperText, Link, FormControlLabel, Checkbox } from '@material-ui/core';
@@ -8,7 +9,7 @@ import PropTypes from 'prop-types';
 import Google from '../../assets/img/gg.png';
 import { CLIENT_ID } from '../../constants/login';
 
-const LoginRight = (props) => {
+const LoginForm = (props) => {
   const {
     onSubmit,
     valueEmail,
@@ -29,8 +30,10 @@ const LoginRight = (props) => {
 
   const classes = useThemes();
   return (
-    <Grid container direction="row" justify="flex-start" alignItems="center">
-      <Box className={classes.right}>
+    <Grid container direction="row" justify="center" alignItems="center" className={classes.childContent} >
+      <Box className={classes.center}>
+        
+        <img alt="#" src={Logo} className={classes.image} />
         <Title className={classes.signinText} title="Sign in" variant="h3" />
         <Form onSubmit={onSubmit}>
           <Grid component="div" className={classes.boxSelect}>
@@ -95,16 +98,16 @@ const LoginRight = (props) => {
           />
         </Form>
         <hr className={classes.hr} />
-        <Title className={classes.signinTextGG} title="Sign in with Google" variant="h3" />
+        <Title className={classes.signinTextGG} title="Sign in with Google" variant="h4" />
         <GoogleLogin
           clientId={CLIENT_ID}
           render={(renderProps) => (
             <Button
-              title=""
               color="default"
               onClick={renderProps.onClick}
               disabled={renderProps.disabled}
               className={classes.singGG}
+              classes={{ startIcon: classes.sizeGoogle }}
               startIcon={
                 <img
                   alt="Google"
@@ -115,7 +118,6 @@ const LoginRight = (props) => {
               }
             />
           )}
-          buttonText="Login"
           onSuccess={onSuccess}
           onFailure={onFailure}
           cookiePolicy={"single_host_origin"}
@@ -125,7 +127,7 @@ const LoginRight = (props) => {
   );
 };
 
-LoginRight.propTypes = {
+LoginForm.propTypes = {
   onSubmit: PropTypes.func,
   valueEmail: PropTypes.string,
   valuePassword: PropTypes.string,
@@ -143,4 +145,4 @@ LoginRight.propTypes = {
   onChangeRemenber: PropTypes.func
 };
 
-export default LoginRight;
+export default LoginForm;

@@ -16,15 +16,15 @@ export const useThemes = makeStyles(theme => ({
     backgroundSize: 'cover',
   },
 
-  rightPadding: {
-    padding: '0 70px',
-    [theme.breakpoints.down('md')]: {
-      padding: 0,
-    },
-    [theme.breakpoints.up('xl')]: {
-      padding: '0 100px',
-    },
+  mainContent: {
+    padding: '0',
+    height: '100%'
   },
+
+  childContent: {
+    height: '100%'
+  },
+
   button: {
     backgroundColor: theme.palette.primary.main,
     '&:hover': {
@@ -44,16 +44,14 @@ export const useThemes = makeStyles(theme => ({
     },
   },
 
-  right: {
-    padding: "40px 0 70px 0",
+  center: {
     borderRadius: 5,
     backgroundColor: 'white',
     boxShadow: '0 0 30px 0 rgba(0, 0, 0, 0.35)',
-    height: '80%',
+    height: '100%',
     width: '70%',
     textAlign: 'center',
     [theme.breakpoints.down('md')]: {
-      padding: "40px 0 70px 0",
       width: '100%',
     },
     [theme.breakpoints.up('xl')]: {
@@ -62,11 +60,11 @@ export const useThemes = makeStyles(theme => ({
   },
 
   singGG: {
-    width: '30%',
-    marginTop: theme.spacing(8),
+    width: '10%',
     backgroundColor: '#fff',
     border: '1px solid rgba(0,0,0,0.3)',
-    boxShadow: 'none'
+    boxShadow: 'none',
+    margin: '0'
   },
 
   signinText: {
@@ -74,12 +72,9 @@ export const useThemes = makeStyles(theme => ({
     fontWeight: 'bold'
   },
 
-  logoLogin: {
-    width: '80%',
-  },
-
-  img: {
-    width: '100%',
+  image: {
+    margin: '20px 0px 0px 0px',
+    height: "10%"
   },
 
   error: {
@@ -104,7 +99,8 @@ export const useThemes = makeStyles(theme => ({
   },
 
   sizeGoogle: {
-    width: '30px'
+    width: '30px',
+    margin: '0'
   },
 
   hr: {
@@ -118,17 +114,6 @@ export const useThemes = makeStyles(theme => ({
     paddingTop: theme.spacing(4),
   },
 
-  welcame: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: '45px',
-  },
-
-  loginLeft: {
-    [theme.breakpoints.down('md')]: {
-      display: 'none'
-    }
-  },
 }));
 
 export const Form = styled.form`

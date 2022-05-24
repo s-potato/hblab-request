@@ -16,6 +16,8 @@ export const role = (id) => {
       return 'User'
     case 3:
       return 'Manage'
+    default:
+      return 'User'
   }
 }
 

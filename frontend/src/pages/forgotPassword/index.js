@@ -30,7 +30,7 @@ const ForgotPassword = () => {
     },
     validationSchema: Yup.object({
       email: Yup.string()
-        .email("No email format!")
+        .email("Wrong email format!")
         .required("Email cannot be blank!"),
     }),
     onSubmit: (values) => {

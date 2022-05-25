@@ -30,6 +30,7 @@ import CategoryIcon from "@material-ui/icons/Category";
 import PropTypes from "prop-types";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import ThumbDownAltIcon from "@material-ui/icons/ThumbDownAlt";
+import CloseIcon from "@material-ui/icons/AssignmentTurnedIn";
 import { Skeleton } from "@material-ui/lab";
 import EventBusyIcon from "@material-ui/icons/EventBusy";
 
@@ -169,6 +170,7 @@ const DetailUI = (props) => {
               {hasHandleRejectAndApproved && status_request !== CLOSE && (
                 <>
                   {status_request !== IN_PROGRESS && (
+                    <>
                     <Button
                       className={classes.btn}
                       title={
@@ -181,8 +183,7 @@ const DetailUI = (props) => {
                       startIcon={<ThumbUpIcon />}
                       onClick={() => handleApproveAndReject(IN_PROGRESS)}
                     />
-                  )}
-                  <Button
+                    <Button
                     className={classes.btn}
                     color="secondary"
                     title={
@@ -195,6 +196,23 @@ const DetailUI = (props) => {
                     startIcon={<ThumbDownAltIcon />}
                     onClick={() => handleApproveAndReject(CLOSE)}
                   />
+                  </>
+                  )}
+                  {status_request === IN_PROGRESS && (
+                  <Button
+                    className={classes.btn}
+                    color="secondary"
+                    title={
+                      isLoading.reject ? (
+                        <CircularProgress size={27} color="inherit" />
+                      ) : (
+                        "Close"
+                      )
+                    }
+                    startIcon={<CloseIcon />}
+                    onClick={() => handleApproveAndReject(CLOSE)}
+                  />
+                  )}
                 </>
               )}
             </Box>
